@@ -1,5 +1,6 @@
 require("@nomiclabs/hardhat-waffle");
 require('@nomiclabs/hardhat-ethers');
+require('dotenv').config()
 // const { mnemonic } = require('./secrets.json');
 
 // This is a sample Hardhat task. To learn how to create your own go to
@@ -32,13 +33,13 @@ module.exports = {
       url: "https://data-seed-prebsc-1-s1.binance.org:8545",
       chainId: 97,
       gasPrice: 20000000000,
-      accounts: ["0x033d9746282ea69e56b9f4e65fe2c29de88904e8a9de969f138774bd34eee010"]
+      accounts: [`0x${process.env.PRIVATEKEY}`]
     },
     mainnet: {
       url: "https://bsc-dataseed.binance.org/",
       chainId: 56,
       gasPrice: 20000000000,
-      accounts: ["0x033d9746282ea69e56b9f4e65fe2c29de88904e8a9de969f138774bd34eee010"]
+      accounts: [`0x${process.env.PRIVATEKEY}`]
     }
   },
   solidity: {

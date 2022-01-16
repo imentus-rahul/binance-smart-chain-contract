@@ -4,6 +4,7 @@
 // When running the script with `npx hardhat run <script>` you'll find the Hardhat
 // Runtime Environment's members available in the global scope.
 const hre = require("hardhat");
+require('dotenv').config()
 
 async function main() {
   // Hardhat always runs the compile task when running scripts with its command
@@ -15,7 +16,7 @@ async function main() {
 
   // We get the contract to deploy
   const SmartMatrixLexeon = await hre.ethers.getContractFactory("SmartMatrixLexeon");
-  const deployContract = await SmartMatrixLexeon.deploy("0x558c4780804cEad9709f4EDC09e2A2bF9D77c352");
+  const deployContract = await SmartMatrixLexeon.deploy(process.env.PUBLICKEY);
 
   await deployContract.deployed();
 
